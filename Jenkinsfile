@@ -14,14 +14,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE}")
+                    sh "docker build -t ${DOCKER_IMAGE} ."
                 }
             }
         }
         stage('Run Tests') {
             steps {
                 script {
-                    docker.run("${DOCKER_IMAGE}", "python -m unittest discover")
+                    sh "docker run --rm ${DOCKER_IMAGE} python -m unittest discover"
                 }
             }
         }
