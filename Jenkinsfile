@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/sonu-iyer/Hospital-MS.git', branch: 'main', credentialsId: 'sonu-iyer'
-            }
+    
             }
         }
         stage('Build Docker Image') {
